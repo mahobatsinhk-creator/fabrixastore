@@ -246,11 +246,17 @@
     padding: {{ block.settings.section_padding }}px 20px;
     background: {{ block.settings.background_color }};
     display: block;
+    width: 100%;
+    max-width: 100%;
+    overflow-x: clip;
+    box-sizing: border-box;
   }
 
   .ai-promo-grid-container-{{ ai_gen_id }} {
     max-width: 1400px;
     margin: 0 auto;
+    width: 100%;
+    min-width: 0;
   }
 
   .ai-promo-grid-layout-{{ ai_gen_id }} {
@@ -258,6 +264,9 @@
     grid-template-columns: 2fr 1fr 1fr;
     gap: {{ block.settings.grid_gap }}px;
     align-items: stretch;
+    width: 100%;
+    max-width: 100%;
+    min-width: 0;
   }
 
   .ai-promo-card-{{ ai_gen_id }} {
@@ -359,7 +368,8 @@
   }
 
   .ai-promo-image-{{ ai_gen_id }} img {
-    width: 320px;
+    width: 100%;
+    max-width: 320px;
     height: 100%;
     object-fit: cover;
     border-radius: 20px;

@@ -164,16 +164,21 @@
 
 .fashion-grid-section{
   width:100%;
+  max-width:100%;
+  overflow-x:clip;
   padding:40px 20px;
   background:#f5f5f5;
+  box-sizing:border-box;
 }
 
 .fashion-grid-wrapper{
+  width:100%;
   max-width:1400px;
   margin:auto;
   display:grid;
   grid-template-columns:2fr 1fr 1fr;
   gap:20px;
+  min-width:0;
 }
 
 .fashion-card{
@@ -239,6 +244,7 @@
   max-width:350px;
   margin:0;
   text-transform:uppercase;
+  overflow-wrap:break-word;
 }
 
 .left-content a{

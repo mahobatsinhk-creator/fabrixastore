@@ -203,7 +203,9 @@
     display: block;
     width: {{ block.settings.desktop_width_percent }}%;
     max-width: 100%;
+    overflow-x: clip;
     padding: {{ block.settings.section_padding }}px;
+    box-sizing: border-box;
   }
 
   .ai-promo-wrapper-{{ ai_gen_id }} {
@@ -211,6 +213,9 @@
     grid-template-columns: 2fr 1fr 1fr;
     gap: {{ block.settings.gap }}px;
     align-items: stretch;
+    width: 100%;
+    max-width: 100%;
+    min-width: 0;
   }
 
   .ai-promo-center-grid-{{ ai_gen_id }} {
