@@ -1,0 +1,227 @@
+<style>
+.custom-wishlist-btn{
+position:absolute;
+top:10px;
+right:10px;
+width:36px;
+height:36px;
+border:none;
+border-radius:50%;
+background:#fff;
+cursor:pointer;
+z-index:9;
+font-size:18px;
+box-shadow:0 2px 10px rgba(0,0,0,.1);
+}
+
+.custom-wishlist-btn.active{
+color:red;
+}
+
+.wishlist-header{
+position:relative;
+cursor:pointer;
+font-size:22px;
+}
+
+.wishlist-count{
+position:absolute;
+top:-8px;
+right:-10px;
+background:#7baa3c;
+color:#fff;
+width:18px;
+height:18px;
+font-size:11px;
+border-radius:50%;
+display:flex;
+align-items:center;
+justify-content:center;
+}
+
+.wishlist-popup{
+position:fixed;
+inset:0;
+background:rgba(0,0,0,.5);
+display:none;
+align-items:center;
+justify-content:center;
+z-index:99999;
+}
+
+.wishlist-popup.active{
+display:flex;
+}
+
+.wishlist-box{
+background:#fff;
+width:700px;
+max-width:90%;
+max-height:80vh;
+overflow:auto;
+padding:25px;
+border-radius:20px;
+position:relative;
+}
+
+.close-wishlist{
+position:absolute;
+top:15px;
+right:20px;
+font-size:30px;
+cursor:pointer;
+}
+
+.wishlist-item{
+display:flex;
+justify-content:space-between;
+align-items:center;
+padding:15px 0;
+border-bottom:1px solid #eee;
+gap:20px;
+}
+
+.wishlist-left{
+display:flex;
+align-items:center;
+gap:15px;
+}
+
+.wishlist-left img{
+width:70px;
+border-radius:10px;
+}
+
+.remove-wishlist{
+background:#7baa3c;
+color:#fff;
+border:none;
+padding:10px 14px;
+border-radius:8px;
+cursor:pointer;
+}
+</style>
+
+<div class="wishlist-header" id="wishlist-open">
+❤
+<span class="wishlist-count">0</span>
+</div>
+
+<div class="wishlist-popup" id="wishlist-popup">
+
+<div class="wishlist-box">
+
+<span class="close-wishlist" id="close-wishlist">×</span>
+
+<h2>❤ My Wishlist</h2>
+
+<div id="wishlist-items"></div>
+
+</div>
+
+</div>
+
+<script>
+document.addEventListener("DOMContentLoaded", function(){
+
+let wishlist = JSON.parse(localStorage.getItem("wishlist")) || [];
+
+const popup = document.getElementById("wishlist-popup");
+const count = document.querySelector(".wishlist-count");
+const itemsBox = document.getElementById("wishlist-items");
+
+function updateCount(){
+count.innerText = wishlist.length;
+}
+
+function renderWishlist(){
+
+itemsBox.innerHTML = "";
+
+if(wishlist.length === 0){
+itemsBox.innerHTML = "<p>No items in wishlist</p>";
+return;
+}
+
+wishlist.forEach((item,index)=>{
+
+itemsBox.innerHTML += `
+<div class="wishlist-item">
+
+<div class="wishlist-left">
+<img src="${item.image}">
+<a href="${item.url}">
+${item.title}
+</a>
+</div>
+
+<button class="remove-wishlist" data-index="${index}">
+Remove
+</button>
+
+</div>
+`;
+
+});
+
+document.querySelectorAll(".remove-wishlist").forEach(btn=>{
+
+btn.addEventListener("click",function(){
+
+wishlist.splice(this.dataset.index,1);
+
+localStorage.setItem(
+"wishlist",
+JSON.stringify(wishlist)
+);
+
+renderWishlist();
+updateCount();
+
+});
+
+});
+
+}
+
+document.getElementById("wishlist-open")
+.addEventListener("click",function(){
+
+popup.classList.add("active");
+
+});
+
+document.getElementById("close-wishlist")
+.addEventListener("click",function(){
+
+popup.classList.remove("active");
+
+});
+
+window.addToWishlist = function(product){
+
+const exists = wishlist.find(
+item => item.url === product.url
+);
+
+if(!exists){
+
+wishlist.push(product);
+
+localStorage.setItem(
+"wishlist",
+JSON.stringify(wishlist)
+);
+
+renderWishlist();
+updateCount();
+
+}
+
+}
+
+renderWishlist();
+updateCount();
+
+});
+</script>

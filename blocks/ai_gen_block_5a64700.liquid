@@ -1,0 +1,1133 @@
+{% doc %}
+  @prompt
+    {% schema %}
+    {
+      "name": "Fabrixa Promo Grid",
+      "settings": [],
+      "presets": [
+        {
+          "name": "Fabrixa Promo Grid"
+        }
+      ]
+    }
+    {% endschema %}
+    
+    <section class="fabrixa-promo-grid">
+      <div class="page-width">
+        
+        <div class="promo-grid">
+    
+          <!-- LEFT BIG BANNER -->
+          <div class="promo-card big-card green-card">
+            <div class="promo-content">
+              <span class="promo-tag">🔥 Hot Deal</span>
+              <h2>BUY MORE<br>SAVE MORE</h2>
+              <p>Special offers on premium fashion collections.</p>
+    
+              <div class="offer-badge">
+                Buy 1 <br> Get 1
+              </div>
+    
+              <a href="/collections/all" class="promo-btn">
+                Shop Now
+              </a>
+            </div>
+    
+            <div class="promo-image">
+              <img src="https://images.unsplash.com/photo-1483985988355-763728e1935b?q=80&w=1200&auto=format&fit=crop" alt="">
+            </div>
+          </div>
+    
+          <!-- CENTER COLUMN -->
+          <div class="center-column">
+    
+            <!-- TOP SMALL -->
+            <div class="promo-card dark-card">
+              <div class="promo-content">
+                <span class="promo-tag">⚡ Sale</span>
+                <h3>SHOP OUR MASSIVE SALE</h3>
+                <p>Up to 30% OFF</p>
+    
+                <a href="/collections/sale" class="promo-btn small-btn">
+                  Shop Sale
+                </a>
+              </div>
+    
+              <div class="floating-products">
+                <img src="https://images.unsplash.com/photo-1521572163474-6864f9cf17ab?q=80&w=600&auto=format&fit=crop">
+                <img src="https://images.unsplash.com/photo-1503342217505-b0a15ec3261c?q=80&w=600&auto=format&fit=crop">
+                <img src="https://images.unsplash.com/photo-1512436991641-6745cdb1723f?q=80&w=600&auto=format&fit=crop">
+              </div>
+            </div>
+    
+            <!-- BOTTOM CATEGORY -->
+            <div class="promo-card light-card">
+              <div class="promo-content center-text">
+                <h3>Wear Your Favorite Characters.</h3>
+                <p>Own Your Unique Style.</p>
+    
+                <div class="gender-grid">
+                  <a href="/collections/men" class="gender-box">
+                    <img src="https://cdn-icons-png.flaticon.com/512/4140/4140048.png">
+                    <span>MEN</span>
+                  </a>
+    
+                  <a href="/collections/women" class="gender-box">
+                    <img src="https://cdn-icons-png.flaticon.com/512/4140/4140051.png">
+                    <span>WOMEN</span>
+                  </a>
+                </div>
+              </div>
+            </div>
+    
+          </div>
+    
+          <!-- RIGHT BIG IMAGE -->
+          <div class="promo-card image-card">
+            <img src="https://images.unsplash.com/photo-1500648767791-00dcc994a43e?q=80&w=1200&auto=format&fit=crop" alt="">
+    
+            <div class="overlay-content">
+              <span>Minimal. Premium. Iconic.</span>
+              <a href="/collections/new-arrivals" class="promo-btn">
+                Explore
+              </a>
+            </div>
+          </div>
+    
+        </div>
+      </div>
+    </section>
+    
+    <style>
+    .fabrixa-promo-grid{
+      padding:40px 20px;
+      background:#f5f5f5;
+    }
+    
+    .promo-grid{
+      display:grid;
+      grid-template-columns: 2fr 1fr 1fr;
+      gap:20px;
+      align-items:stretch;
+    }
+    
+    .promo-card{
+      border-radius:24px;
+      overflow:hidden;
+      position:relative;
+      min-height:260px;
+      transition:0.4s ease;
+    }
+    
+    .promo-card:hover{
+      transform:translateY(-5px);
+    }
+    
+    .green-card{
+      background:linear-gradient(135deg,#7fbf3f,#9ad04f);
+      display:flex;
+      justify-content:space-between;
+      padding:40px;
+    }
+    
+    .green-card h2{
+      font-size:60px;
+      line-height:0.95;
+      color:#fff;
+      font-weight:900;
+      margin:10px 0;
+    }
+    
+    .green-card p{
+      color:#fff;
+      max-width:300px;
+    }
+    
+    .promo-tag{
+      background:#ffffff30;
+      color:#fff;
+      padding:8px 16px;
+      border-radius:50px;
+      font-size:13px;
+      font-weight:600;
+      display:inline-block;
+      backdrop-filter:blur(10px);
+    }
+    
+    .offer-badge{
+      width:90px;
+      height:90px;
+      border-radius:100%;
+      background:#fff;
+      color:#7fbf3f;
+      display:flex;
+      align-items:center;
+      justify-content:center;
+      text-align:center;
+      font-weight:700;
+      position:absolute;
+      bottom:30px;
+      left:40px;
+      box-shadow:0 10px 30px rgba(0,0,0,0.15);
+    }
+    
+    .promo-btn{
+      display:inline-flex;
+      align-items:center;
+      gap:10px;
+      margin-top:20px;
+      padding:14px 28px;
+      background:#111;
+      color:#fff;
+      text-decoration:none;
+      border-radius:50px;
+      font-weight:600;
+    }
+    
+    .small-btn{
+      background:#9ad04f;
+      color:#111;
+    }
+    
+    .promo-image img{
+      width:320px;
+      height:100%;
+      object-fit:cover;
+      border-radius:20px;
+    }
+    
+    .center-column{
+      display:flex;
+      flex-direction:column;
+      gap:20px;
+    }
+    
+    .dark-card{
+      background:#1b1b1b;
+      padding:30px;
+      color:#fff;
+      min-height:250px;
+    }
+    
+    .dark-card h3{
+      font-size:34px;
+      line-height:1.1;
+      margin:10px 0;
+    }
+    
+    .floating-products{
+      position:absolute;
+      right:20px;
+      top:30px;
+    }
+    
+    .floating-products img{
+      width:80px;
+      height:80px;
+      object-fit:cover;
+      border-radius:16px;
+      border:4px solid #fff;
+      position:absolute;
+      box-shadow:0 10px 20px rgba(0,0,0,0.2);
+    }
+    
+    .floating-products img:nth-child(1){
+      top:0;
+      right:0;
+    }
+    
+    .floating-products img:nth-child(2){
+      top
+{% enddoc %}
+{% assign ai_gen_id = block.id | replace: '_', '' | downcase %}
+
+{% style %}
+  .ai-promo-grid-{{ ai_gen_id }} {
+    padding: {{ block.settings.section_padding }}px 20px;
+    background: {{ block.settings.background_color }};
+    display: block;
+  }
+
+  .ai-promo-grid-container-{{ ai_gen_id }} {
+    max-width: 1400px;
+    margin: 0 auto;
+  }
+
+  .ai-promo-grid-layout-{{ ai_gen_id }} {
+    display: grid;
+    grid-template-columns: 2fr 1fr 1fr;
+    gap: {{ block.settings.grid_gap }}px;
+    align-items: stretch;
+  }
+
+  .ai-promo-card-{{ ai_gen_id }} {
+    border-radius: {{ block.settings.card_border_radius }}px;
+    overflow: hidden;
+    position: relative;
+    min-height: 260px;
+    transition: transform 0.4s ease;
+  }
+
+  .ai-promo-card-{{ ai_gen_id }}:hover {
+    transform: translateY(-5px);
+  }
+
+  .ai-promo-card-big-{{ ai_gen_id }} {
+    background: {{ block.settings.big_card_bg_color }};
+    display: flex;
+    justify-content: space-between;
+    padding: 40px;
+  }
+
+  .ai-promo-content-{{ ai_gen_id }} {
+    position: relative;
+    z-index: 2;
+  }
+
+  .ai-promo-tag-{{ ai_gen_id }} {
+    background: rgba(255, 255, 255, 0.2);
+    color: {{ block.settings.big_card_text_color }};
+    padding: 8px 16px;
+    border-radius: 50px;
+    font-size: 13px;
+    font-weight: 600;
+    display: inline-block;
+    backdrop-filter: blur(10px);
+  }
+
+  .ai-promo-card-big-{{ ai_gen_id }} h2 {
+    font-size: {{ block.settings.big_card_heading_size }}px;
+    line-height: 0.95;
+    color: {{ block.settings.big_card_text_color }};
+    font-weight: 900;
+    margin: 10px 0;
+  }
+
+  .ai-promo-card-big-{{ ai_gen_id }} p {
+    color: {{ block.settings.big_card_text_color }};
+    max-width: 300px;
+  }
+
+  .ai-offer-badge-{{ ai_gen_id }} {
+    width: 90px;
+    height: 90px;
+    border-radius: 100%;
+    background: {{ block.settings.badge_bg_color }};
+    color: {{ block.settings.badge_text_color }};
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    text-align: center;
+    font-weight: 700;
+    position: absolute;
+    bottom: 30px;
+    left: 40px;
+    box-shadow: 0 10px 30px rgba(0, 0, 0, 0.15);
+    font-size: 14px;
+    line-height: 1.2;
+  }
+
+  .ai-promo-btn-{{ ai_gen_id }} {
+    display: inline-flex;
+    align-items: center;
+    gap: 10px;
+    margin-top: 20px;
+    padding: 14px 28px;
+    background: {{ block.settings.button_bg_color }};
+    color: {{ block.settings.button_text_color }};
+    text-decoration: none;
+    border-radius: 50px;
+    font-weight: 600;
+    transition: background 0.3s ease;
+  }
+
+  .ai-promo-btn-{{ ai_gen_id }}:hover {
+    background: {{ block.settings.button_hover_bg_color }};
+  }
+
+  .ai-promo-btn-small-{{ ai_gen_id }} {
+    background: {{ block.settings.small_button_bg_color }};
+    color: {{ block.settings.small_button_text_color }};
+  }
+
+  .ai-promo-btn-small-{{ ai_gen_id }}:hover {
+    background: {{ block.settings.small_button_hover_bg_color }};
+  }
+
+  .ai-promo-image-{{ ai_gen_id }} {
+    flex-shrink: 0;
+  }
+
+  .ai-promo-image-{{ ai_gen_id }} img {
+    width: 320px;
+    height: 100%;
+    object-fit: cover;
+    border-radius: 20px;
+  }
+
+  .ai-promo-image-placeholder-{{ ai_gen_id }} {
+    width: 320px;
+    height: 100%;
+    background: #f4f4f4;
+    border-radius: 20px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+  }
+
+  .ai-promo-image-placeholder-{{ ai_gen_id }} svg {
+    width: 100%;
+    height: 100%;
+    max-width: 200px;
+    max-height: 200px;
+  }
+
+  .ai-center-column-{{ ai_gen_id }} {
+    display: flex;
+    flex-direction: column;
+    gap: {{ block.settings.grid_gap }}px;
+  }
+
+  .ai-promo-card-dark-{{ ai_gen_id }} {
+    background: {{ block.settings.dark_card_bg_color }};
+    padding: 30px;
+    color: {{ block.settings.dark_card_text_color }};
+    min-height: 250px;
+    position: relative;
+  }
+
+  .ai-promo-card-dark-{{ ai_gen_id }} h3 {
+    font-size: {{ block.settings.dark_card_heading_size }}px;
+    line-height: 1.1;
+    margin: 10px 0;
+    color: {{ block.settings.dark_card_text_color }};
+  }
+
+  .ai-floating-products-{{ ai_gen_id }} {
+    position: absolute;
+    right: 20px;
+    top: 30px;
+  }
+
+  .ai-floating-products-{{ ai_gen_id }} img {
+    width: 80px;
+    height: 80px;
+    object-fit: cover;
+    border-radius: 16px;
+    border: 4px solid #fff;
+    position: absolute;
+    box-shadow: 0 10px 20px rgba(0, 0, 0, 0.2);
+  }
+
+  .ai-floating-products-{{ ai_gen_id }} img:nth-child(1) {
+    top: 0;
+    right: 0;
+  }
+
+  .ai-floating-products-{{ ai_gen_id }} img:nth-child(2) {
+    top: 40px;
+    right: 60px;
+  }
+
+  .ai-floating-products-{{ ai_gen_id }} img:nth-child(3) {
+    top: 80px;
+    right: 120px;
+  }
+
+  .ai-promo-card-light-{{ ai_gen_id }} {
+    background: {{ block.settings.light_card_bg_color }};
+    padding: 30px;
+    color: {{ block.settings.light_card_text_color }};
+  }
+
+  .ai-promo-content-center-{{ ai_gen_id }} {
+    text-align: center;
+  }
+
+  .ai-promo-card-light-{{ ai_gen_id }} h3 {
+    font-size: {{ block.settings.light_card_heading_size }}px;
+    margin: 0 0 8px;
+    color: {{ block.settings.light_card_text_color }};
+  }
+
+  .ai-gender-grid-{{ ai_gen_id }} {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 15px;
+    margin-top: 20px;
+  }
+
+  .ai-gender-box-{{ ai_gen_id }} {
+    background: {{ block.settings.gender_box_bg_color }};
+    border: 2px solid {{ block.settings.gender_box_border_color }};
+    border-radius: 12px;
+    padding: 20px;
+    text-decoration: none;
+    color: {{ block.settings.gender_box_text_color }};
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    gap: 10px;
+    transition: all 0.3s ease;
+  }
+
+  .ai-gender-box-{{ ai_gen_id }}:hover {
+    background: {{ block.settings.gender_box_hover_bg_color }};
+    transform: translateY(-3px);
+  }
+
+  .ai-gender-box-{{ ai_gen_id }} img {
+    width: 50px;
+    height: 50px;
+    object-fit: contain;
+  }
+
+  .ai-gender-box-{{ ai_gen_id }} span {
+    font-weight: 700;
+    font-size: 14px;
+  }
+
+  .ai-promo-card-image-{{ ai_gen_id }} {
+    position: relative;
+  }
+
+  .ai-promo-card-image-{{ ai_gen_id }} img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+  }
+
+  .ai-promo-card-image-placeholder-{{ ai_gen_id }} {
+    width: 100%;
+    height: 100%;
+    min-height: 400px;
+    background: #f4f4f4;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+  }
+
+  .ai-promo-card-image-placeholder-{{ ai_gen_id }} svg {
+    width: 100%;
+    height: 100%;
+    max-width: 300px;
+    max-height: 300px;
+  }
+
+  .ai-overlay-content-{{ ai_gen_id }} {
+    position: absolute;
+    bottom: 30px;
+    left: 30px;
+    color: {{ block.settings.overlay_text_color }};
+  }
+
+  .ai-overlay-content-{{ ai_gen_id }} span {
+    font-size: 18px;
+    font-weight: 600;
+    display: block;
+    margin-bottom: 15px;
+  }
+
+  @media screen and (max-width: 989px) {
+    .ai-promo-grid-layout-{{ ai_gen_id }} {
+      grid-template-columns: 1fr;
+    }
+
+    .ai-promo-card-big-{{ ai_gen_id }} {
+      flex-direction: column;
+      gap: 20px;
+    }
+
+    .ai-promo-image-{{ ai_gen_id }} img,
+    .ai-promo-image-placeholder-{{ ai_gen_id }} {
+      width: 100%;
+      max-width: 400px;
+      margin: 0 auto;
+    }
+
+    .ai-offer-badge-{{ ai_gen_id }} {
+      position: static;
+      margin-top: 20px;
+    }
+
+    .ai-promo-card-big-{{ ai_gen_id }} h2 {
+      font-size: {{ block.settings.big_card_heading_size | times: 0.7 }}px;
+    }
+
+    .ai-promo-card-dark-{{ ai_gen_id }} h3 {
+      font-size: {{ block.settings.dark_card_heading_size | times: 0.8 }}px;
+    }
+
+    .ai-floating-products-{{ ai_gen_id }} {
+      position: static;
+      display: flex;
+      gap: 10px;
+      margin-top: 20px;
+    }
+
+    .ai-floating-products-{{ ai_gen_id }} img {
+      position: static;
+    }
+  }
+{% endstyle %}
+
+<promo-grid-{{ ai_gen_id }} class="ai-promo-grid-{{ ai_gen_id }}" {{ block.shopify_attributes }}>
+  <div class="ai-promo-grid-container-{{ ai_gen_id }}">
+    <div class="ai-promo-grid-layout-{{ ai_gen_id }}">
+
+      <div class="ai-promo-card-{{ ai_gen_id }} ai-promo-card-big-{{ ai_gen_id }}">
+        <div class="ai-promo-content-{{ ai_gen_id }}">
+          {% if block.settings.big_card_tag != blank %}
+            <span class="ai-promo-tag-{{ ai_gen_id }}">{{ block.settings.big_card_tag }}</span>
+          {% endif %}
+          
+          {% if block.settings.big_card_heading != blank %}
+            <h2>{{ block.settings.big_card_heading }}</h2>
+          {% endif %}
+          
+          {% if block.settings.big_card_text != blank %}
+            <p>{{ block.settings.big_card_text }}</p>
+          {% endif %}
+
+          {% if block.settings.show_badge %}
+            <div class="ai-offer-badge-{{ ai_gen_id }}">
+              {{ block.settings.badge_text }}
+            </div>
+          {% endif %}
+
+          {% if block.settings.big_card_button_text != blank %}
+            <a href="{{ block.settings.big_card_button_link }}" class="ai-promo-btn-{{ ai_gen_id }}">
+              {{ block.settings.big_card_button_text }}
+            </a>
+          {% endif %}
+        </div>
+
+        <div class="ai-promo-image-{{ ai_gen_id }}">
+          {% if block.settings.big_card_image %}
+            <img
+              src="{{ block.settings.big_card_image | image_url: width: 640 }}"
+              alt="{{ block.settings.big_card_image.alt | escape }}"
+              loading="lazy"
+              width="320"
+              height="400"
+            >
+          {% else %}
+            <div class="ai-promo-image-placeholder-{{ ai_gen_id }}">
+              {{ 'image' | placeholder_svg_tag }}
+            </div>
+          {% endif %}
+        </div>
+      </div>
+
+      <div class="ai-center-column-{{ ai_gen_id }}">
+        <div class="ai-promo-card-{{ ai_gen_id }} ai-promo-card-dark-{{ ai_gen_id }}">
+          <div class="ai-promo-content-{{ ai_gen_id }}">
+            {% if block.settings.dark_card_tag != blank %}
+              <span class="ai-promo-tag-{{ ai_gen_id }}">{{ block.settings.dark_card_tag }}</span>
+            {% endif %}
+            
+            {% if block.settings.dark_card_heading != blank %}
+              <h3>{{ block.settings.dark_card_heading }}</h3>
+            {% endif %}
+            
+            {% if block.settings.dark_card_text != blank %}
+              <p>{{ block.settings.dark_card_text }}</p>
+            {% endif %}
+
+            {% if block.settings.dark_card_button_text != blank %}
+              <a href="{{ block.settings.dark_card_button_link }}" class="ai-promo-btn-{{ ai_gen_id }} ai-promo-btn-small-{{ ai_gen_id }}">
+                {{ block.settings.dark_card_button_text }}
+              </a>
+            {% endif %}
+          </div>
+
+          {% if block.settings.floating_image_1 or block.settings.floating_image_2 or block.settings.floating_image_3 %}
+            <div class="ai-floating-products-{{ ai_gen_id }}">
+              {% if block.settings.floating_image_1 %}
+                <img
+                  src="{{ block.settings.floating_image_1 | image_url: width: 160 }}"
+                  alt="{{ block.settings.floating_image_1.alt | escape }}"
+                  loading="lazy"
+                >
+              {% endif %}
+              {% if block.settings.floating_image_2 %}
+                <img
+                  src="{{ block.settings.floating_image_2 | image_url: width: 160 }}"
+                  alt="{{ block.settings.floating_image_2.alt | escape }}"
+                  loading="lazy"
+                >
+              {% endif %}
+              {% if block.settings.floating_image_3 %}
+                <img
+                  src="{{ block.settings.floating_image_3 | image_url: width: 160 }}"
+                  alt="{{ block.settings.floating_image_3.alt | escape }}"
+                  loading="lazy"
+                >
+              {% endif %}
+            </div>
+          {% endif %}
+        </div>
+
+        <div class="ai-promo-card-{{ ai_gen_id }} ai-promo-card-light-{{ ai_gen_id }}">
+          <div class="ai-promo-content-{{ ai_gen_id }} ai-promo-content-center-{{ ai_gen_id }}">
+            {% if block.settings.light_card_heading != blank %}
+              <h3>{{ block.settings.light_card_heading }}</h3>
+            {% endif %}
+            
+            {% if block.settings.light_card_text != blank %}
+              <p>{{ block.settings.light_card_text }}</p>
+            {% endif %}
+
+            <div class="ai-gender-grid-{{ ai_gen_id }}">
+              <a href="{{ block.settings.men_link }}" class="ai-gender-box-{{ ai_gen_id }}">
+                {% if block.settings.men_icon %}
+                  <img
+                    src="{{ block.settings.men_icon | image_url: width: 100 }}"
+                    alt="Men"
+                    loading="lazy"
+                  >
+                {% endif %}
+                <span>{{ block.settings.men_label }}</span>
+              </a>
+
+              <a href="{{ block.settings.women_link }}" class="ai-gender-box-{{ ai_gen_id }}">
+                {% if block.settings.women_icon %}
+                  <img
+                    src="{{ block.settings.women_icon | image_url: width: 100 }}"
+                    alt="Women"
+                    loading="lazy"
+                  >
+                {% endif %}
+                <span>{{ block.settings.women_label }}</span>
+              </a>
+            </div>
+          </div>
+        </div>
+      </div>
+
+      <div class="ai-promo-card-{{ ai_gen_id }} ai-promo-card-image-{{ ai_gen_id }}">
+        {% if block.settings.right_card_image %}
+          <img
+            src="{{ block.settings.right_card_image | image_url: width: 800 }}"
+            alt="{{ block.settings.right_card_image.alt | escape }}"
+            loading="lazy"
+          >
+        {% else %}
+          <div class="ai-promo-card-image-placeholder-{{ ai_gen_id }}">
+            {{ 'image' | placeholder_svg_tag }}
+          </div>
+        {% endif %}
+
+        <div class="ai-overlay-content-{{ ai_gen_id }}">
+          {% if block.settings.right_card_text != blank %}
+            <span>{{ block.settings.right_card_text }}</span>
+          {% endif %}
+          
+          {% if block.settings.right_card_button_text != blank %}
+            <a href="{{ block.settings.right_card_button_link }}" class="ai-promo-btn-{{ ai_gen_id }}">
+              {{ block.settings.right_card_button_text }}
+            </a>
+          {% endif %}
+        </div>
+      </div>
+
+    </div>
+  </div>
+</promo-grid-{{ ai_gen_id }}>
+
+<script>
+  (function() {
+    class PromoGrid{{ ai_gen_id }} extends HTMLElement {
+      constructor() {
+        super();
+      }
+
+      connectedCallback() {
+        this.style.display = 'block';
+      }
+    }
+
+    customElements.define('promo-grid-{{ ai_gen_id }}', PromoGrid{{ ai_gen_id }});
+  })();
+</script>
+
+{% schema %}
+{
+  "name": "Promo grid",
+  "settings": [
+    {
+      "type": "header",
+      "content": "Layout"
+    },
+    {
+      "type": "range",
+      "id": "section_padding",
+      "label": "Section padding",
+      "min": 0,
+      "max": 100,
+      "step": 5,
+      "unit": "px",
+      "default": 40
+    },
+    {
+      "type": "range",
+      "id": "grid_gap",
+      "label": "Grid gap",
+      "min": 10,
+      "max": 40,
+      "step": 5,
+      "unit": "px",
+      "default": 20
+    },
+    {
+      "type": "range",
+      "id": "card_border_radius",
+      "label": "Card border radius",
+      "min": 0,
+      "max": 40,
+      "step": 2,
+      "unit": "px",
+      "default": 24
+    },
+    {
+      "type": "color",
+      "id": "background_color",
+      "label": "Background color",
+      "default": "#f5f5f5"
+    },
+    {
+      "type": "header",
+      "content": "Big card (left)"
+    },
+    {
+      "type": "text",
+      "id": "big_card_tag",
+      "label": "Tag",
+      "default": "🔥 Hot Deal"
+    },
+    {
+      "type": "richtext",
+      "id": "big_card_heading",
+      "label": "Heading",
+      "default": "<p>BUY MORE SAVE MORE</p>"
+    },
+    {
+      "type": "text",
+      "id": "big_card_text",
+      "label": "Text",
+      "default": "Special offers on premium fashion collections."
+    },
+    {
+      "type": "range",
+      "id": "big_card_heading_size",
+      "label": "Heading size",
+      "min": 24,
+      "max": 80,
+      "step": 4,
+      "unit": "px",
+      "default": 60
+    },
+    {
+      "type": "image_picker",
+      "id": "big_card_image",
+      "label": "Image"
+    },
+    {
+      "type": "text",
+      "id": "big_card_button_text",
+      "label": "Button text",
+      "default": "Shop Now"
+    },
+    {
+      "type": "url",
+      "id": "big_card_button_link",
+      "label": "Button link"
+    },
+    {
+      "type": "color",
+      "id": "big_card_bg_color",
+      "label": "Background color",
+      "default": "#7fbf3f"
+    },
+    {
+      "type": "color",
+      "id": "big_card_text_color",
+      "label": "Text color",
+      "default": "#ffffff"
+    },
+    {
+      "type": "header",
+      "content": "Offer badge"
+    },
+    {
+      "type": "checkbox",
+      "id": "show_badge",
+      "label": "Show badge",
+      "default": true
+    },
+    {
+      "type": "richtext",
+      "id": "badge_text",
+      "label": "Badge text",
+      "default": "<p>Buy 1 Get 1</p>"
+    },
+    {
+      "type": "color",
+      "id": "badge_bg_color",
+      "label": "Badge background",
+      "default": "#ffffff"
+    },
+    {
+      "type": "color",
+      "id": "badge_text_color",
+      "label": "Badge text color",
+      "default": "#7fbf3f"
+    },
+    {
+      "type": "header",
+      "content": "Dark card (center top)"
+    },
+    {
+      "type": "text",
+      "id": "dark_card_tag",
+      "label": "Tag",
+      "default": "⚡ Sale"
+    },
+    {
+      "type": "text",
+      "id": "dark_card_heading",
+      "label": "Heading",
+      "default": "SHOP OUR MASSIVE SALE"
+    },
+    {
+      "type": "text",
+      "id": "dark_card_text",
+      "label": "Text",
+      "default": "Up to 30% OFF"
+    },
+    {
+      "type": "range",
+      "id": "dark_card_heading_size",
+      "label": "Heading size",
+      "min": 18,
+      "max": 48,
+      "step": 2,
+      "unit": "px",
+      "default": 34
+    },
+    {
+      "type": "text",
+      "id": "dark_card_button_text",
+      "label": "Button text",
+      "default": "Shop Sale"
+    },
+    {
+      "type": "url",
+      "id": "dark_card_button_link",
+      "label": "Button link"
+    },
+    {
+      "type": "color",
+      "id": "dark_card_bg_color",
+      "label": "Background color",
+      "default": "#1b1b1b"
+    },
+    {
+      "type": "color",
+      "id": "dark_card_text_color",
+      "label": "Text color",
+      "default": "#ffffff"
+    },
+    {
+      "type": "image_picker",
+      "id": "floating_image_1",
+      "label": "Floating image 1"
+    },
+    {
+      "type": "image_picker",
+      "id": "floating_image_2",
+      "label": "Floating image 2"
+    },
+    {
+      "type": "image_picker",
+      "id": "floating_image_3",
+      "label": "Floating image 3"
+    },
+    {
+      "type": "header",
+      "content": "Light card (center bottom)"
+    },
+    {
+      "type": "text",
+      "id": "light_card_heading",
+      "label": "Heading",
+      "default": "Wear Your Favorite Characters."
+    },
+    {
+      "type": "text",
+      "id": "light_card_text",
+      "label": "Text",
+      "default": "Own Your Unique Style."
+    },
+    {
+      "type": "range",
+      "id": "light_card_heading_size",
+      "label": "Heading size",
+      "min": 16,
+      "max": 40,
+      "step": 2,
+      "unit": "px",
+      "default": 24
+    },
+    {
+      "type": "color",
+      "id": "light_card_bg_color",
+      "label": "Background color",
+      "default": "#ffffff"
+    },
+    {
+      "type": "color",
+      "id": "light_card_text_color",
+      "label": "Text color",
+      "default": "#000000"
+    },
+    {
+      "type": "header",
+      "content": "Gender boxes"
+    },
+    {
+      "type": "image_picker",
+      "id": "men_icon",
+      "label": "Men icon"
+    },
+    {
+      "type": "text",
+      "id": "men_label",
+      "label": "Men label",
+      "default": "MEN"
+    },
+    {
+      "type": "url",
+      "id": "men_link",
+      "label": "Men link"
+    },
+    {
+      "type": "image_picker",
+      "id": "women_icon",
+      "label": "Women icon"
+    },
+    {
+      "type": "text",
+      "id": "women_label",
+      "label": "Women label",
+      "default": "WOMEN"
+    },
+    {
+      "type": "url",
+      "id": "women_link",
+      "label": "Women link"
+    },
+    {
+      "type": "color",
+      "id": "gender_box_bg_color",
+      "label": "Box background",
+      "default": "#ffffff"
+    },
+    {
+      "type": "color",
+      "id": "gender_box_hover_bg_color",
+      "label": "Box hover background",
+      "default": "#f5f5f5"
+    },
+    {
+      "type": "color",
+      "id": "gender_box_border_color",
+      "label": "Box border color",
+      "default": "#e6e6e6"
+    },
+    {
+      "type": "color",
+      "id": "gender_box_text_color",
+      "label": "Box text color",
+      "default": "#000000"
+    },
+    {
+      "type": "header",
+      "content": "Right card"
+    },
+    {
+      "type": "image_picker",
+      "id": "right_card_image",
+      "label": "Image"
+    },
+    {
+      "type": "text",
+      "id": "right_card_text",
+      "label": "Overlay text",
+      "default": "Minimal. Premium. Iconic."
+    },
+    {
+      "type": "text",
+      "id": "right_card_button_text",
+      "label": "Button text",
+      "default": "Explore"
+    },
+    {
+      "type": "url",
+      "id": "right_card_button_link",
+      "label": "Button link"
+    },
+    {
+      "type": "color",
+      "id": "overlay_text_color",
+      "label": "Overlay text color",
+      "default": "#ffffff"
+    },
+    {
+      "type": "header",
+      "content": "Buttons"
+    },
+    {
+      "type": "color",
+      "id": "button_bg_color",
+      "label": "Background",
+      "default": "#111111"
+    },
+    {
+      "type": "color",
+      "id": "button_text_color",
+      "label": "Text color",
+      "default": "#ffffff"
+    },
+    {
+      "type": "color",
+      "id": "button_hover_bg_color",
+      "label": "Hover background",
+      "default": "#333333"
+    },
+    {
+      "type": "color",
+      "id": "small_button_bg_color",
+      "label": "Small button background",
+      "default": "#9ad04f"
+    },
+    {
+      "type": "color",
+      "id": "small_button_text_color",
+      "label": "Small button text",
+      "default": "#111111"
+    },
+    {
+      "type": "color",
+      "id": "small_button_hover_bg_color",
+      "label": "Small button hover",
+      "default": "#7fbf3f"
+    }
+  ],
+  "presets": [
+    {
+      "name": "Promo grid"
+    }
+  ]
+}
+{% endschema %}

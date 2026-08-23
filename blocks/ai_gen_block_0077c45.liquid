@@ -1,0 +1,570 @@
+{% doc %}
+  @prompt
+    {% schema %}
+    {
+      "name": "Custom Promo Grid",
+      "settings": [
+        {
+          "type": "image_picker",
+          "id": "image_1",
+          "label": "Left Large Image"
+        },
+        {
+          "type": "image_picker",
+          "id": "image_2",
+          "label": "Top Middle Image"
+        },
+        {
+          "type": "image_picker",
+          "id": "image_3",
+          "label": "Bottom Middle Image"
+        },
+        {
+          "type": "image_picker",
+          "id": "image_4",
+          "label": "Right Large Image"
+        }
+      ],
+      "presets": [
+        {
+          "name": "Custom Promo Grid"
+        }
+      ]
+    }
+    {% endschema %}
+    
+    <section class="custom-promo-grid">
+      <div class="promo-wrapper">
+    
+        <!-- LEFT BIG -->
+        <a href="#" class="promo-box big-left">
+          {% if section.settings.image_1 != blank %}
+            <img 
+              src="{{ section.settings.image_1 | image_url: width: 1200 }}" 
+              alt=""
+              loading="lazy"
+            >
+          {% endif %}
+        </a>
+    
+        <!-- CENTER -->
+        <div class="center-grid">
+    
+          <a href="#" class="promo-box small-top">
+            {% if section.settings.image_2 != blank %}
+              <img 
+                src="{{ section.settings.image_2 | image_url: width: 800 }}" 
+                alt=""
+                loading="lazy"
+              >
+            {% endif %}
+          </a>
+    
+          <a href="#" class="promo-box small-bottom">
+            {% if section.settings.image_3 != blank %}
+              <img 
+                src="{{ section.settings.image_3 | image_url: width: 800 }}" 
+                alt=""
+                loading="lazy"
+              >
+            {% endif %}
+          </a>
+    
+        </div>
+    
+        <!-- RIGHT BIG -->
+        <a href="#" class="promo-box big-right">
+          {% if section.settings.image_4 != blank %}
+            <img 
+              src="{{ section.settings.image_4 | image_url: width: 1200 }}" 
+              alt=""
+              loading="lazy"
+            >
+          {% endif %}
+        </a>
+    
+      </div>
+    </section>
+    
+    <style>
+    
+    .custom-promo-grid{
+      width:100%;
+      padding:20px;
+    }
+    
+    .promo-wrapper{
+      display:grid;
+      grid-template-columns:2fr 1fr 1fr;
+      gap:16px;
+      align-items:stretch;
+    }
+    
+    .center-grid{
+      display:grid;
+      grid-template-rows:1fr 1fr;
+      gap:16px;
+    }
+    
+    .promo-box{
+      display:block;
+      overflow:hidden;
+      border-radius:22px;
+      position:relative;
+      height:100%;
+    }
+    
+    .promo-box img{
+      width:100%;
+      height:100%;
+      object-fit:cover;
+      display:block;
+      transition:0.5s ease;
+    }
+    
+    .promo-box:hover img{
+      transform:scale(1.05);
+    }
+    
+    /* HEIGHTS */
+    
+    .big-left{
+      min-height:420px;
+    }
+    
+    .big-right{
+      min-height:420px;
+    }
+    
+    .small-top,
+    .small-bottom{
+      min-height:202px;
+    }
+    
+    /* ========================= */
+    /* TABLET */
+    /* ========================= */
+    
+    @media screen and (max-width: 991px){
+    
+      .promo-wrapper{
+        grid-template-columns:1fr 1fr;
+      }
+    
+      .big-right{
+        grid-column:span 2;
+      }
+    
+    }
+    
+    /* ========================= */
+    /* MOBILE */
+    /* ========================= */
+    
+    @media screen and (max-width: 767px){
+    
+      .custom-promo-grid{
+        padding:12px;
+      }
+    
+      .promo-wrapper{
+        grid-template-columns:1fr;
+        gap:12px;
+      }
+    
+      .center-grid{
+        grid-template-rows:auto;
+        gap:12px;
+      }
+    
+      .big-right{
+        grid-column:auto;
+      }
+    
+      .big-left,
+      .big-right,
+      .small-top,
+      .small-bottom{
+        min-height:220px;
+      }
+    
+      .promo-box{
+        border-radius:16px;
+      }
+    
+    }
+    
+    </style>
+{% enddoc %}
+{% assign ai_gen_id = block.id | replace: '_', '' | downcase %}
+
+{% style %}
+  .ai-promo-grid-{{ ai_gen_id }} {
+    display: block;
+    width: {{ block.settings.desktop_width_percent }}%;
+    max-width: 100%;
+    padding: {{ block.settings.section_padding }}px;
+  }
+
+  .ai-promo-wrapper-{{ ai_gen_id }} {
+    display: grid;
+    grid-template-columns: 2fr 1fr 1fr;
+    gap: {{ block.settings.gap }}px;
+    align-items: stretch;
+  }
+
+  .ai-promo-center-grid-{{ ai_gen_id }} {
+    display: grid;
+    grid-template-rows: 1fr 1fr;
+    gap: {{ block.settings.gap }}px;
+  }
+
+  .ai-promo-box-{{ ai_gen_id }} {
+    display: block;
+    overflow: hidden;
+    border-radius: {{ block.settings.border_radius }}px;
+    position: relative;
+    height: 100%;
+    text-decoration: none;
+  }
+
+  .ai-promo-box-{{ ai_gen_id }} img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    display: block;
+    transition: transform 0.5s ease;
+  }
+
+  .ai-promo-box-{{ ai_gen_id }}:hover img {
+    transform: scale(1.05);
+  }
+
+  .ai-promo-box-big-left-{{ ai_gen_id }} {
+    min-height: {{ block.settings.large_box_height }}px;
+  }
+
+  .ai-promo-box-big-right-{{ ai_gen_id }} {
+    min-height: {{ block.settings.large_box_height }}px;
+  }
+
+  .ai-promo-box-small-{{ ai_gen_id }} {
+    min-height: {{ block.settings.small_box_height }}px;
+  }
+
+  .ai-promo-placeholder-{{ ai_gen_id }} {
+    width: 100%;
+    height: 100%;
+    background-color: #f4f4f4;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+  }
+
+  .ai-promo-placeholder-{{ ai_gen_id }} svg {
+    width: 100%;
+    height: 100%;
+    max-width: 500px;
+    max-height: 500px;
+  }
+
+  @media screen and (max-width: 991px) {
+    .ai-promo-wrapper-{{ ai_gen_id }} {
+      grid-template-columns: 1fr 1fr;
+    }
+
+    .ai-promo-box-big-right-{{ ai_gen_id }} {
+      grid-column: span 2;
+    }
+  }
+
+  @media screen and (max-width: 767px) {
+    .ai-promo-grid-{{ ai_gen_id }} {
+      padding: {{ block.settings.section_padding_mobile }}px;
+    }
+
+    .ai-promo-wrapper-{{ ai_gen_id }} {
+      grid-template-columns: 1fr;
+      gap: {{ block.settings.gap_mobile }}px;
+    }
+
+    .ai-promo-center-grid-{{ ai_gen_id }} {
+      grid-template-rows: auto;
+      gap: {{ block.settings.gap_mobile }}px;
+    }
+
+    .ai-promo-box-big-right-{{ ai_gen_id }} {
+      grid-column: auto;
+    }
+
+    .ai-promo-box-big-left-{{ ai_gen_id }},
+    .ai-promo-box-big-right-{{ ai_gen_id }},
+    .ai-promo-box-small-{{ ai_gen_id }} {
+      min-height: {{ block.settings.mobile_box_height }}px;
+    }
+
+    .ai-promo-box-{{ ai_gen_id }} {
+      border-radius: {{ block.settings.border_radius_mobile }}px;
+    }
+  }
+{% endstyle %}
+
+<div class="ai-promo-grid-{{ ai_gen_id }}" {{ block.shopify_attributes }}>
+  <div class="ai-promo-wrapper-{{ ai_gen_id }}">
+    <a
+      href="{{ block.settings.link_1 }}"
+      class="ai-promo-box-{{ ai_gen_id }} ai-promo-box-big-left-{{ ai_gen_id }}"
+    >
+      {% if block.settings.image_1 != blank %}
+        <img
+          src="{{ block.settings.image_1 | image_url: width: 1200 }}"
+          alt="{{ block.settings.image_1.alt | escape }}"
+          loading="lazy"
+          width="{{ block.settings.image_1.width }}"
+          height="{{ block.settings.image_1.height }}"
+        >
+      {% else %}
+        <div class="ai-promo-placeholder-{{ ai_gen_id }}">
+          {{ 'image' | placeholder_svg_tag }}
+        </div>
+      {% endif %}
+    </a>
+
+    <div class="ai-promo-center-grid-{{ ai_gen_id }}">
+      <a
+        href="{{ block.settings.link_2 }}"
+        class="ai-promo-box-{{ ai_gen_id }} ai-promo-box-small-{{ ai_gen_id }}"
+      >
+        {% if block.settings.image_2 != blank %}
+          <img
+            src="{{ block.settings.image_2 | image_url: width: 800 }}"
+            alt="{{ block.settings.image_2.alt | escape }}"
+            loading="lazy"
+            width="{{ block.settings.image_2.width }}"
+            height="{{ block.settings.image_2.height }}"
+          >
+        {% else %}
+          <div class="ai-promo-placeholder-{{ ai_gen_id }}">
+            {{ 'image' | placeholder_svg_tag }}
+          </div>
+        {% endif %}
+      </a>
+
+      <a
+        href="{{ block.settings.link_3 }}"
+        class="ai-promo-box-{{ ai_gen_id }} ai-promo-box-small-{{ ai_gen_id }}"
+      >
+        {% if block.settings.image_3 != blank %}
+          <img
+            src="{{ block.settings.image_3 | image_url: width: 800 }}"
+            alt="{{ block.settings.image_3.alt | escape }}"
+            loading="lazy"
+            width="{{ block.settings.image_3.width }}"
+            height="{{ block.settings.image_3.height }}"
+          >
+        {% else %}
+          <div class="ai-promo-placeholder-{{ ai_gen_id }}">
+            {{ 'image' | placeholder_svg_tag }}
+          </div>
+        {% endif %}
+      </a>
+    </div>
+
+    <a
+      href="{{ block.settings.link_4 }}"
+      class="ai-promo-box-{{ ai_gen_id }} ai-promo-box-big-right-{{ ai_gen_id }}"
+    >
+      {% if block.settings.image_4 != blank %}
+        <img
+          src="{{ block.settings.image_4 | image_url: width: 1200 }}"
+          alt="{{ block.settings.image_4.alt | escape }}"
+          loading="lazy"
+          width="{{ block.settings.image_4.width }}"
+          height="{{ block.settings.image_4.height }}"
+        >
+      {% else %}
+        <div class="ai-promo-placeholder-{{ ai_gen_id }}">
+          {{ 'image' | placeholder_svg_tag }}
+        </div>
+      {% endif %}
+    </a>
+  </div>
+</div>
+
+{% schema %}
+{
+  "name": "Promo grid",
+  "tag": null,
+  "settings": [
+    {
+      "type": "header",
+      "content": "Left large image"
+    },
+    {
+      "type": "image_picker",
+      "id": "image_1",
+      "label": "Image"
+    },
+    {
+      "type": "url",
+      "id": "link_1",
+      "label": "Link"
+    },
+    {
+      "type": "header",
+      "content": "Top middle image"
+    },
+    {
+      "type": "image_picker",
+      "id": "image_2",
+      "label": "Image"
+    },
+    {
+      "type": "url",
+      "id": "link_2",
+      "label": "Link"
+    },
+    {
+      "type": "header",
+      "content": "Bottom middle image"
+    },
+    {
+      "type": "image_picker",
+      "id": "image_3",
+      "label": "Image"
+    },
+    {
+      "type": "url",
+      "id": "link_3",
+      "label": "Link"
+    },
+    {
+      "type": "header",
+      "content": "Right large image"
+    },
+    {
+      "type": "image_picker",
+      "id": "image_4",
+      "label": "Image"
+    },
+    {
+      "type": "url",
+      "id": "link_4",
+      "label": "Link"
+    },
+    {
+      "type": "header",
+      "content": "Layout"
+    },
+    {
+      "type": "range",
+      "id": "desktop_width_percent",
+      "label": "Desktop width",
+      "min": 50,
+      "max": 100,
+      "step": 5,
+      "unit": "%",
+      "default": 100
+    },
+    {
+      "type": "range",
+      "id": "section_padding",
+      "label": "Desktop padding",
+      "min": 0,
+      "max": 60,
+      "step": 4,
+      "unit": "px",
+      "default": 20
+    },
+    {
+      "type": "range",
+      "id": "section_padding_mobile",
+      "label": "Mobile padding",
+      "min": 0,
+      "max": 40,
+      "step": 4,
+      "unit": "px",
+      "default": 12
+    },
+    {
+      "type": "range",
+      "id": "gap",
+      "label": "Desktop gap",
+      "min": 0,
+      "max": 40,
+      "step": 4,
+      "unit": "px",
+      "default": 16
+    },
+    {
+      "type": "range",
+      "id": "gap_mobile",
+      "label": "Mobile gap",
+      "min": 0,
+      "max": 40,
+      "step": 4,
+      "unit": "px",
+      "default": 12
+    },
+    {
+      "type": "range",
+      "id": "border_radius",
+      "label": "Desktop border radius",
+      "min": 0,
+      "max": 40,
+      "step": 2,
+      "unit": "px",
+      "default": 22
+    },
+    {
+      "type": "range",
+      "id": "border_radius_mobile",
+      "label": "Mobile border radius",
+      "min": 0,
+      "max": 40,
+      "step": 2,
+      "unit": "px",
+      "default": 16
+    },
+    {
+      "type": "header",
+      "content": "Box heights"
+    },
+    {
+      "type": "range",
+      "id": "large_box_height",
+      "label": "Large box height",
+      "min": 200,
+      "max": 800,
+      "step": 20,
+      "unit": "px",
+      "default": 420
+    },
+    {
+      "type": "range",
+      "id": "small_box_height",
+      "label": "Small box height",
+      "min": 100,
+      "max": 400,
+      "step": 10,
+      "unit": "px",
+      "default": 200
+    },
+    {
+      "type": "range",
+      "id": "mobile_box_height",
+      "label": "Mobile box height",
+      "min": 100,
+      "max": 500,
+      "step": 20,
+      "unit": "px",
+      "default": 220
+    }
+  ],
+  "presets": [
+    {
+      "name": "Promo grid"
+    }
+  ]
+}
+{% endschema %}

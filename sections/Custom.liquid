@@ -1,0 +1,350 @@
+{% schema %}
+{
+  "name": "Fashion Promo Grid",
+  "tag": "section",
+  "class": "fashion-promo-grid",
+  "settings": [
+
+    {
+      "type": "image_picker",
+      "id": "left_image",
+      "label": "Left Big Banner"
+    },
+
+    {
+      "type": "image_picker",
+      "id": "top_middle_image",
+      "label": "Top Middle Banner"
+    },
+
+    {
+      "type": "image_picker",
+      "id": "bottom_middle_image",
+      "label": "Bottom Middle Banner"
+    },
+
+    {
+      "type": "image_picker",
+      "id": "right_image",
+      "label": "Right Banner"
+    },
+
+    {
+      "type": "text",
+      "id": "left_heading",
+      "label": "Left Heading",
+      "default": "BUY MORE TO SAVE MORE"
+    },
+
+    {
+      "type": "text",
+      "id": "left_button",
+      "label": "Left Button Text",
+      "default": "Buy 1 Get 1"
+    },
+
+    {
+      "type": "text",
+      "id": "middle_heading",
+      "label": "Middle Heading",
+      "default": "SHOP OUR MASSIVE SALE"
+    },
+
+    {
+      "type": "text",
+      "id": "offer_text",
+      "label": "Offer Text",
+      "default": "30% OFF"
+    }
+
+  ],
+
+  "presets": [
+    {
+      "name": "Fashion Promo Grid"
+    }
+  ]
+}
+{% endschema %}
+
+
+
+<section class="fashion-grid-section">
+
+  <div class="fashion-grid-wrapper">
+
+    <!-- LEFT BIG -->
+    <div class="fashion-card left-big">
+
+      {% if section.settings.left_image != blank %}
+        <img
+          src="{{ section.settings.left_image | image_url: width: 1600 }}"
+          alt=""
+          loading="lazy"
+        >
+      {% endif %}
+
+      <div class="fashion-overlay left-content">
+
+        <h2>{{ section.settings.left_heading }}</h2>
+
+        <a href="#">
+          {{ section.settings.left_button }}
+        </a>
+
+      </div>
+
+    </div>
+
+
+
+    <!-- MIDDLE -->
+    <div class="middle-column">
+
+      <!-- TOP -->
+      <div class="fashion-card middle-top">
+
+        {% if section.settings.top_middle_image != blank %}
+          <img
+            src="{{ section.settings.top_middle_image | image_url: width: 1000 }}"
+            alt=""
+            loading="lazy"
+          >
+        {% endif %}
+
+        <div class="fashion-overlay center-content">
+
+          <h3>{{ section.settings.middle_heading }}</h3>
+
+          <span>{{ section.settings.offer_text }}</span>
+
+        </div>
+
+      </div>
+
+
+
+      <!-- BOTTOM -->
+      <div class="fashion-card middle-bottom">
+
+        {% if section.settings.bottom_middle_image != blank %}
+          <img
+            src="{{ section.settings.bottom_middle_image | image_url: width: 1000 }}"
+            alt=""
+            loading="lazy"
+          >
+        {% endif %}
+
+      </div>
+
+    </div>
+
+
+
+    <!-- RIGHT -->
+    <div class="fashion-card right-big">
+
+      {% if section.settings.right_image != blank %}
+        <img
+          src="{{ section.settings.right_image | image_url: width: 1400 }}"
+          alt=""
+          loading="lazy"
+        >
+      {% endif %}
+
+    </div>
+
+  </div>
+
+</section>
+
+
+
+<style>
+
+.fashion-grid-section{
+  width:100%;
+  padding:40px 20px;
+  background:#f5f5f5;
+}
+
+.fashion-grid-wrapper{
+  max-width:1400px;
+  margin:auto;
+  display:grid;
+  grid-template-columns:2fr 1fr 1fr;
+  gap:20px;
+}
+
+.fashion-card{
+  position:relative;
+  overflow:hidden;
+  border-radius:18px;
+}
+
+.fashion-card img{
+  width:100%;
+  height:100%;
+  object-fit:cover;
+  display:block;
+  transition:0.5s ease;
+}
+
+.fashion-card:hover img{
+  transform:scale(1.05);
+}
+
+/* LEFT */
+
+.left-big{
+  height:500px;
+}
+
+/* MIDDLE */
+
+.middle-column{
+  display:flex;
+  flex-direction:column;
+  gap:20px;
+}
+
+.middle-top,
+.middle-bottom{
+  height:240px;
+}
+
+/* RIGHT */
+
+.right-big{
+  height:500px;
+}
+
+/* OVERLAY */
+
+.fashion-overlay{
+  position:absolute;
+  z-index:2;
+}
+
+.left-content{
+  top:40px;
+  left:40px;
+}
+
+.left-content h2{
+  color:#fff;
+  font-size:64px;
+  line-height:0.95;
+  font-weight:900;
+  max-width:350px;
+  margin:0;
+  text-transform:uppercase;
+}
+
+.left-content a{
+  display:inline-block;
+  margin-top:25px;
+  background:#8bc34a;
+  color:#fff;
+  text-decoration:none;
+  padding:12px 22px;
+  border-radius:50px;
+  font-size:18px;
+  font-weight:700;
+}
+
+.center-content{
+  top:50%;
+  left:50%;
+  transform:translate(-50%,-50%);
+  text-align:center;
+  width:100%;
+}
+
+.center-content h3{
+  color:#fff;
+  font-size:34px;
+  line-height:1.1;
+  margin-bottom:15px;
+  font-weight:800;
+  text-transform:uppercase;
+}
+
+.center-content span{
+  background:#fff;
+  color:#000;
+  padding:8px 16px;
+  border-radius:8px;
+  font-size:16px;
+  font-weight:700;
+}
+
+/* TABLET */
+
+@media(max-width:991px){
+
+  .fashion-grid-wrapper{
+    grid-template-columns:1fr 1fr;
+  }
+
+  .right-big{
+    grid-column:span 2;
+    height:350px;
+  }
+
+  .left-big{
+    height:400px;
+  }
+
+  .left-content h2{
+    font-size:46px;
+  }
+
+}
+
+/* MOBILE */
+
+@media(max-width:767px){
+
+  .fashion-grid-section{
+    padding:20px 12px;
+  }
+
+  .fashion-grid-wrapper{
+    grid-template-columns:1fr;
+    gap:15px;
+  }
+
+  .left-big,
+  .middle-top,
+  .middle-bottom,
+  .right-big{
+    height:250px;
+  }
+
+  .right-big{
+    grid-column:auto;
+  }
+
+  .left-content{
+    top:20px;
+    left:20px;
+  }
+
+  .left-content h2{
+    font-size:34px;
+    max-width:220px;
+  }
+
+  .left-content a{
+    font-size:14px;
+    padding:8px 14px;
+  }
+
+  .center-content h3{
+    font-size:22px;
+  }
+
+}
+
+</style>
