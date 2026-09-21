@@ -134,7 +134,7 @@
             continue
           endif
 
-          if forloop.first and section.index == null or section.index < 5
+          if forloop.first and section.index != null and section.index <= 2
             assign loading = 'eager'
             assign sizes = image_sizes
           endif

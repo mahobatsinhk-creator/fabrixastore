@@ -1,5 +1,32 @@
 
 
+{% if section.index <= 2 and section.blocks.size > 0 %}
+  {%- assign first_slide = section.blocks | first -%}
+  {%- if first_slide.settings.media_type_1 == 'image' and first_slide.settings.image_1 != blank -%}
+    {%- if section.index == 1 -%}
+      <link
+        rel="preload"
+        as="image"
+        href="{{ first_slide.settings.image_1 | image_url: width: 1100 }}"
+        imagesrcset="{{ first_slide.settings.image_1 | image_url: width: 750 }} 750w, {{ first_slide.settings.image_1 | image_url: width: 1100 }} 1100w, {{ first_slide.settings.image_1 | image_url: width: 1500 }} 1500w"
+        imagesizes="100vw"
+        media="(max-width: 749px)"
+        fetchpriority="high"
+      >
+    {%- else -%}
+      <link
+        rel="preload"
+        as="image"
+        href="{{ first_slide.settings.image_1 | image_url: width: 1920 }}"
+        imagesrcset="{{ first_slide.settings.image_1 | image_url: width: 1100 }} 1100w, {{ first_slide.settings.image_1 | image_url: width: 1500 }} 1500w, {{ first_slide.settings.image_1 | image_url: width: 1920 }} 1920w, {{ first_slide.settings.image_1 | image_url: width: 2560 }} 2560w"
+        imagesizes="100vw"
+        media="(min-width: 750px)"
+        fetchpriority="high"
+      >
+    {%- endif -%}
+  {%- endif -%}
+{% endif %}
+
 {% if section.blocks.size > 1 %}
   {% if section.settings.display_mode == 'full_frame' %}
     {% assign autoplay = section.settings.autoplay %}
